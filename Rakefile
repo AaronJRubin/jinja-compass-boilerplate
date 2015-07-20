@@ -11,6 +11,7 @@ task :compile_sass => ["build"] do
 end
 
 task :watch do
+  puts "Watching for changes..."
   FileWatcher.new(["templates/", "macros/", "sass/"]).watch do |filename| 
     if filename.include? "scss"
       sh "rake compile_sass"
