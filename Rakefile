@@ -14,9 +14,9 @@ task :watch do
   puts "Watching for changes..."
   FileWatcher.new(["templates/", "macros/", "sass/"]).watch do |filename| 
     if filename.include? "scss"
-      sh "rake compile_sass"
+      sh "rake compile_sass || true"
     elsif filename.include?("templates") or filename.include?("macros")
-      sh "rake render"
+      sh "rake render || true"
     end
   end
 end
